@@ -4,6 +4,11 @@ from langchain_groq import ChatGroq
 
 st.title("🇬🇧 English → 🇮🇳 Kannada Translator")
 
+
+# Retrieve the API key from Streamlit secrets
+api_key = st.secrets["GROQ_API_KEY"]
+
+llm = ChatGroq(model="openai/gpt-oss-120b", temperature=1.6, api_key=api_key)
 import streamlit as st
 
 if "GROQ_API_KEY" in st.secrets:
