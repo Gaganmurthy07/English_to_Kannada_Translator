@@ -7,7 +7,7 @@ st.title("🇬🇧 English → 🇮🇳 Kannada Translator")
 import streamlit as st
 
 if "GROQ_API_KEY" in st.secrets:
-    groq_api_key = st.secrets["prompt"]
+    groq_api_key = st.secrets["GROQ_API_KEY"]
 else:
 
     groq_api_key = st.text_input("Enter Groq API Key", type="password")
