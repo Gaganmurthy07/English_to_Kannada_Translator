@@ -4,14 +4,19 @@ from langchain_groq import ChatGroq
 
 st.title("🇬🇧 English → 🇮🇳 Kannada Translator")
 
-try:
-    api_key = st.secrets["prompt"]
-except Exception:
-    api_key = st.sidebar.text_input("Enter Groq API Key", type="password")
+import streamlit as st
 
-if not api_key:
-    st.warning("Please provide your Groq API key.")
+if "GROQ_API_KEY" in st.secrets:
+    groq_api_key = st.secrets["Prompt"]
+else:
+
+    groq_api_key = st.text_input("Enter Groq API Key", type="password")
+
+if not groq_api_key:
+    st.warning("Please provide your Groq API key in secrets or enter it above.")
     st.stop()
+
+
 
 llm = ChatGroq(model="openai/gpt-oss-120b", temperature=1.6, api_key=api_key)
 
