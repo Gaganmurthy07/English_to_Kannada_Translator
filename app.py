@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_groq import ChatGroq
 
-st.title("🇬🇧 English → 🇮🇳 Kannada Translator")
+st.title("AveonRush (English → Kannada Translator)")
 
 
 # Retrieve the API key from Streamlit secrets
@@ -49,7 +49,8 @@ chain = few_shot_prompt | llm
 english_text = st.text_area("Enter English Text", placeholder="Type here...")
 if st.button("Translate to Kannada", type="primary"):
     if english_text.strip():
-        response = chain.invoke({"review": english_text})
-        st.success(response.content)
+        with st.spinner("Translating with AI... Please wait!"):
+            response = chain.invoke({"review": english_text})
+            st.success(response.content)
     else:
         st.warning("Please enter text.")
