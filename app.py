@@ -2,7 +2,7 @@ import streamlit as st
 from langchain_core.prompts import PromptTemplate, FewShotPromptTemplate
 from langchain_groq import ChatGroq
 
-st.title("AveonRush (English → Kannada Translator)")
+st.title("AveonRush 🤖 (English → Kannada Translator)")
 
 
 # Retrieve the API key from Streamlit secrets
